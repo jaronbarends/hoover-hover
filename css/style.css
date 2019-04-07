@@ -1,0 +1,99 @@
+/*-- Start reset --*/
+	a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,button,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark form,menu,nav,object,ol,option,output,p,pre,q,ruby,s,samp,section,select,small,span,strike,strong,sub,summary,sup,table,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;border:0;padding:0;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}button,input[type=checkbox],input[type=image],input[type=radio],input[type=submit],label{cursor:pointer}strong{font-weight:700}em{font-style:italic}.fList{list-style:none}
+/*-- End reset --*/
+
+body {
+	font-family: georgia;
+	font-size: 1.5em;
+	line-height: 1.5;
+	color: #333;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h1 strong {
+	color: #ef4324;
+}
+
+.wrapper {
+	margin: 10% auto;
+	text-align: center;
+}
+
+.link {
+	display: inline-block;
+	margin-top: 120px;
+	width: 40%;
+
+}
+
+a {
+	color: #333;
+	border-bottom: 2px solid;
+	padding: 0 0.25em;
+	text-decoration: none;
+}
+
+.hoover a {
+	position: relative;
+}
+
+.hoover a::before {
+	position: absolute;
+	display: block;
+	z-index: 1;
+	left: 100%;
+	bottom: 4px;
+	width: 11em;
+	height: 100px;
+	background: #fff url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA5My42IDI0Ny41IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA5My42IDI0Ny41IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZmlsbD0iI0VGNDMyNSIgZD0iTTAsMjQwLjh2LTQuMWw5LjQtNC45aDExLjJsNi01LjloNWwyLjktMy43bDIuMy0xMi40bDEuMS0wLjR2LTIuOWMwLDAtMi44LDAuNC01LjQtMi4ycy0yLjgtNS4yLTIuNi02LjkKCXMyLTUyLDQuNy01Ni4yczUuMS0xLjUsNS44LTNzMC41LTkuNCwyLjktMTYuNGMyLjQtNy4xLDQtOC45LDUuOC05LjZzNywwLDcsMGwxNy43LTgzbDEuNy0xLjdjMCwwLDAtMTAuMywwLTE3LjVTODYsMCw4OS4xLDAKCWMzLjIsMCw0LjMsMS43LDQuNSwzLjNTOTIsNi41LDg4LjgsNi41Yy0zLjIsMC02LjcsMy4yLTYuNyw2LjhsLTAuMiwxMmwyLjgsMi43bC0xOS4yLDg0LjVsMS41LDMuOGMwLDAsNS41LDIsNi41LDQuMQoJYzEsMi4xLTQuMywzMi40LTcuNSw0NC45cy0xMC41LDQwLjUtMTIuNyw0MS41Yy0yLjIsMS02LjYsMC43LTYuNiwwLjdsLTEuNCwzLjdsLTEuNy0wLjNjMCwwLTAuOCw5LjgtMS41LDExLjdzLTEuMyw1LjUtMy4yLDYuNwoJYy0xLjgsMS4yLDEuMiwzLDEuMiwzbDAuNSwzLjJsNiwzLjJ2My43bC01LDUuM0wwLDI0MC44eiIvPgo8L3N2Zz4=) bottom left no-repeat;
+	content: "";
+	opacity: 0;
+	transform: translateX(0.5em);
+	transition: opacity 0.5s, transform 0 0.5s;
+}
+
+.hoover a:hover::before {
+	opacity: 1;
+	transform: translateX(-9.5em);
+	transition: opacity 0.5s, transform 2.3s 0.8s;
+}
+
+.hl span {
+	display: inline-block;
+	transform-origin: left 70%;
+	transition-property: transform;
+	transition-duration: 0.3s;
+}
+.hl:hover span {
+	transform: translateX(0.4em) scale(1.7, 0.3);
+}
+.hl:hover span:nth-last-child(1) { transition-delay: 0.8s}
+.hl:hover span:nth-last-child(2) { transition-delay: 0.86s}
+.hl:hover span:nth-last-child(3) { transition-delay: 0.92s}
+.hl:hover span:nth-last-child(4) { transition-delay: 0.98s}
+.hl:hover span:nth-last-child(5) { transition-delay: 1.04s}
+.hl:hover span:nth-last-child(6) { transition-delay: 1.10s}
+.hl:hover span:nth-last-child(7) { transition-delay: 1.16s}
+.hl:hover span:nth-last-child(8) { transition-delay: 1.22s}
+.hl:hover span:nth-last-child(9) { transition-delay: 1.28s}
+.hl:hover span:nth-last-child(10) { transition-delay: 1.34s}
+.hl:hover span:nth-last-child(11) { transition-delay: 1.42s}
+.hl:hover span:nth-last-child(12) { transition-delay: 1.48s}
+.hl:hover span:nth-last-child(13) { transition-delay: 1.54s}
+.hl:hover span:nth-last-child(14) { transition-delay: 1.62s}
+.hl:hover span:nth-last-child(15) { transition-delay: 1.70s}
+
+.hover a {
+	background: transparent;
+	transition-property: all;
+	transition-duration: 0.3s;
+}
+
+.hover a:hover {
+	text-decoration: none;
+	background: #ef4324;
+	color: #fff;
+}

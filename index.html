@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="nl-nl">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<title>hover of hoover?</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+	<div class="wrapper">
+		<h1>Zeg je nou <strong>hoover</strong> of <strong>hover</strong>?</h1>
+
+		<div id="hover" class="link hover">
+			<a id="hover-link" href="http://nl.forvo.com/word/hover/">Link met <strong>hover</strong></a>
+		</div>
+
+		<div id="hoover" class="link hoover">
+			<a id="hoover-link" class="hl" href="http://www.hoover.com">
+			<span>L</span><span>i</span><span>n</span><span>k</span><span>&nbsp;</span><span>m</span><span>e</span><span>t</span><span>&nbsp;</span><span><strong>h</strong></span><span><strong>o</strong></span><span><strong>o</strong></span><span><strong>v</strong></span><span><strong>e</strong></span><span><strong>r</strong></span></a>
+		</div>
+	</div><!-- /.wrapper -->
+
+		<!-- 
+			https://dictionary.cambridge.org/media/english/uk_pron/u/ukh/ukhou/ukhouse024.mp3
+			https://dictionary.cambridge.org/media/english/us_pron/h/hov/hover/hover.mp3
+			https://freesound.org/people/winsx87/sounds/152020/
+		-->
+
+	<script>
+		const hoverUrl = 'assets/hover-us.mp3';
+		const hooverUrl = 'assets/hoover.mp3';
+
+		const context = new (window.AudioContext || window.webkitAudioContext)();
+		const hoverLink = document.getElementById(`hover-link`);
+		const hooverLink = document.getElementById(`hoover-link`);
+		let hoverBuffer;
+		let hooverBuffer;
+
+		window.fetch(hoverUrl)
+			.then(response => response.arrayBuffer())
+			.then(arrayBuffer => context.decodeAudioData(arrayBuffer))
+			.then(audioBuffer => {
+				hoverBuffer = audioBuffer;
+			}
+		);
+		
+		window.fetch(hooverUrl)
+			.then(response => response.arrayBuffer())
+			.then(arrayBuffer => context.decodeAudioData(arrayBuffer))
+			.then(audioBuffer => {
+				hooverBuffer = audioBuffer;
+			}
+		);
+
+
+		function play(audioBuffer) {
+			const source = context.createBufferSource();
+			source.buffer = audioBuffer;
+			source.connect(context.destination);
+			source.start();
+		}
+
+		hoverLink.addEventListener('mouseenter', (e) => {
+			e.preventDefault();
+			play(hoverBuffer);
+		});
+
+		hooverLink.addEventListener('mouseenter', (e) => {
+			e.preventDefault();
+			play(hooverBuffer);
+		});
+
+
+	</script>
+</body>
+</html>
